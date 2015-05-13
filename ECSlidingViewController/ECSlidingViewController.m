@@ -106,7 +106,15 @@
 
 - (void)setup {
     self.anchorLeftPeekAmount    = 44;
-    self.anchorRightRevealAmount = 276;
+
+    if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)) {
+        self.anchorRightRevealAmount = 500;
+    }
+    else
+    {
+        self.anchorRightRevealAmount = 276;
+    }
+
     _currentTopViewPosition = ECSlidingViewControllerTopViewPositionCentered;
     self.transitionInProgress = NO;
 }
